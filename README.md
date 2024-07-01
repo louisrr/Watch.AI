@@ -3,7 +3,7 @@
 ## What is WatchAI
 WatchAI is an AI video generation service that allows users to generate 2K video scenes up to 2 minutes or 120 seconds in length with specific life-like, human characters, backdrops, background music. Public figures and people who have requested to not be used in generated videos are not able to be cast as characters in generated video unless they have granted expressed, and legally verifiable permission. 
 
-# Mathematical Concepts for Video Compilation
+# Mathematical Concepts for Video Processing and Compilation
 
 ## 1. Video Frame Extraction
 To extract frames from a video, we sample a sequence at regular intervals.
@@ -23,16 +23,47 @@ The transformed frame \( F' \) is given by:
 
 ![Equation4](https://latex.codecogs.com/svg.latex?F'%20=%20T%20\cdot%20F)
 
-## 3. Video Compilation
+## 3. Optical Flow
+Optical flow calculation involves determining the motion between two frames by comparing pixel intensities.
+
+![Equation5](https://latex.codecogs.com/svg.latex?I(x,%20y,%20t)\quad%20\text{represents%20the%20intensity%20of%20the%20pixel%20at%20position}\;%20(x,%20y)\;%20\text{at%20time}\;%20t.)
+
+The optical flow vector \( (u, v) \) is the solution to:
+
+![Equation6](https://latex.codecogs.com/svg.latex?I(x%20+%20u,%20y%20+%20v,%20t%20+%201)\approx%20I(x,%20y,%20t))
+
+Approximated by:
+
+![Equation7](https://latex.codecogs.com/svg.latex?\frac{\partial%20I}{\partial%20x}%20u%20+%20\frac{\partial%20I}{\partial%20y}%20v%20+%20\frac{\partial%20I}{\partial%20t}%20=%200)
+
+## 4. Background Subtraction
+Background subtraction is used to separate foreground objects from the background in video frames.
+
+![Equation8](https://latex.codecogs.com/svg.latex?I_t(x,%20y)\quad%20\text{is%20the%20pixel%20intensity%20at%20time}\;%20t,%20\;%20B(x,%20y)\;%20\text{is%20the%20background%20model.})
+
+The foreground mask \( F_t(x, y) \) is given by:
+
+![Equation9](https://latex.codecogs.com/svg.latex?F_t(x,%20y)%20=%20|%20I_t(x,%20y)%20-%20B(x,%20y)%20|%20>%20\text{threshold})
+
+## 5. Motion Detection
+Motion detection involves identifying changes between consecutive frames to detect movement.
+
+![Equation10](https://latex.codecogs.com/svg.latex?F_t\quad%20\text{and}\;%20F_{t+1}\;%20\text{are%20consecutive%20frames.})
+
+The difference frame \( D \) is:
+
+![Equation11](https://latex.codecogs.com/svg.latex?D%20=%20|%20F_{t+1}%20-%20F_t%20|)
+
+Motion is detected if \( D \) exceeds a threshold.
+
+## 6. Video Writing
 To compile the processed frames back into a video, we write each frame in sequence to a video file.
 
-![Equation5](https://latex.codecogs.com/svg.latex?\{F'_i\}\quad%20\text{is%20the%20sequence%20of%20processed%20frames.})
+![Equation12](https://latex.codecogs.com/svg.latex?\{F'_i\}\quad%20\text{is%20the%20sequence%20of%20processed%20frames.})
 
 The compiled video \( V' \) is:
 
-![Equation6](https://latex.codecogs.com/svg.latex?V'%20=%20\{F'_0,%20F'_1,%20F'_2,%20\ldots,%20F'_n\})
-
-
+![Equation13](https://latex.codecogs.com/svg.latex?V'%20=%20\{F'_0,%20F'_1,%20F'_2,%20\ldots,%20F'_n\})
 
 ## Installation
 - Install Python 3.0+ on your machine
