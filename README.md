@@ -3,60 +3,6 @@
 ## What is WatchAI
 WatchAI is an AI video generation service that allows users to generate 2K video scenes up to 2 minutes or 120 seconds in length with specific life-like, human characters, backdrops, background music. Public figures and people who have requested to not be used in generated videos are not able to be cast as characters in generated video unless they have granted expressed, and legally verifiable permission. 
 
-```latex
-\documentclass{article}
-\usepackage{amsmath}
-
-\begin{document}
-
-\section*{Mathematical Concepts for Video Compilation}
-
-\subsection*{1. Video Frame Extraction}
-To extract frames from a video, we sample a sequence at regular intervals.
-
-\[
-V(t) \quad \text{is the video as a function of time} \; t.
-\]
-
-\[
-\text{To extract frames, we sample} \; V \; \text{at intervals} \; \Delta t:
-\]
-
-\[
-\{ V(t_0), V(t_0 + \Delta t), V(t_0 + 2\Delta t), \ldots \}
-\]
-
-\subsection*{2. Frame Processing (e.g., resizing, filtering)}
-This involves applying transformations to each frame, often represented as matrices.
-
-\[
-F \quad \text{is a frame, and} \; T \; \text{is a transformation matrix.}
-\]
-
-\[
-\text{The transformed frame} \; F' \; \text{is given by:}
-\]
-
-\[
-F' = T \cdot F
-\]
-
-\subsection*{3. Video Compilation}
-To compile the processed frames back into a video, we write each frame in sequence to a video file.
-
-\[
-\{ F'_i \} \quad \text{is the sequence of processed frames.}
-\]
-
-\[
-\text{The compiled video} \; V' \; \text{is:}
-\]
-
-\[
-V' = \{ F'_0, F'_1, F'_2, \ldots, F'_n \}
-\]
-
-\end{document}
 
 
 ## Installation
