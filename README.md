@@ -25,7 +25,7 @@ Before you start, ensure you have the following installed:
 
 1. **Clone the Repository** (optional if you have direct access to the files)
 ```
-git clone git@gitlab.com:reach7385646/watchai.git
+git clone git@github.com:louisrr/Watch.AI.git
 cd watchai
 ```
 
