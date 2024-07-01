@@ -58,7 +58,7 @@ To compile the processed frames back into a video, we write each frame in sequen
 V' = \{ F'_0, F'_1, F'_2, \ldots, F'_n \}
 \]
 
-\end{document}
+\end{document}```
 
 
 ## Installation
