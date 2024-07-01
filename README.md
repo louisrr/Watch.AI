@@ -5,60 +5,33 @@ WatchAI is an AI video generation service that allows users to generate 2K video
 
 # Mathematical Concepts for Video Compilation
 
-```latex
-\documentclass{article}
-\usepackage{amsmath}
-
-\begin{document}
-
-\section*{Mathematical Concepts for Video Compilation}
-
-\subsection*{1. Video Frame Extraction}
+## 1. Video Frame Extraction
 To extract frames from a video, we sample a sequence at regular intervals.
 
-\[
-V(t) \quad \text{is the video as a function of time} \; t.
-\]
+![Equation1](https://latex.codecogs.com/svg.latex?V(t)\quad%20\text{is%20the%20video%20as%20a%20function%20of%20time}%20t.)
 
-\[
-\text{To extract frames, we sample} \; V \; \text{at intervals} \; \Delta t:
-\]
+To extract frames, we sample \( V \) at intervals \( \Delta t \):
 
-\[
-\{ V(t_0), V(t_0 + \Delta t), V(t_0 + 2\Delta t), \ldots \}
-\]
+![Equation2](https://latex.codecogs.com/svg.latex?\{V(t_0),%20V(t_0%20+%20\Delta%20t),%20V(t_0%20+%202\Delta%20t),%20\ldots\})
 
-\subsection*{2. Frame Processing (e.g., resizing, filtering)}
+## 2. Frame Processing (e.g., resizing, filtering)
 This involves applying transformations to each frame, often represented as matrices.
 
-\[
-F \quad \text{is a frame, and} \; T \; \text{is a transformation matrix.}
-\]
+![Equation3](https://latex.codecogs.com/svg.latex?F\quad%20\text{is%20a%20frame,%20and}%20T%20\text{is%20a%20transformation%20matrix.})
 
-\[
-\text{The transformed frame} \; F' \; \text{is given by:}
-\]
+The transformed frame \( F' \) is given by:
 
-\[
-F' = T \cdot F
-\]
+![Equation4](https://latex.codecogs.com/svg.latex?F'%20=%20T%20\cdot%20F)
 
-\subsection*{3. Video Compilation}
+## 3. Video Compilation
 To compile the processed frames back into a video, we write each frame in sequence to a video file.
 
-\[
-\{ F'_i \} \quad \text{is the sequence of processed frames.}
-\]
+![Equation5](https://latex.codecogs.com/svg.latex?\{F'_i\}\quad%20\text{is%20the%20sequence%20of%20processed%20frames.})
 
-\[
-\text{The compiled video} \; V' \; \text{is:}
-\]
+The compiled video \( V' \) is:
 
-\[
-V' = \{ F'_0, F'_1, F'_2, \ldots, F'_n \}
-\]
+![Equation6](https://latex.codecogs.com/svg.latex?V'%20=%20\{F'_0,%20F'_1,%20F'_2,%20\ldots,%20F'_n\})
 
-\end{document}```
 
 
 ## Installation
