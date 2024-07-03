@@ -1,15 +1,13 @@
 import sys
 import os
-
-# Add the src directory to the Python path
-sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
-
 from fastapi import FastAPI, HTTPException, BackgroundTasks, Form
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from typing import List, Optional
-import os
 import subprocess
+
+# Add the src directory to the Python path
+sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
 # Importing functions from various modules
 from TextService import process_text
@@ -24,6 +22,13 @@ from trainroberta import process_roberta
 from transformers import transformers_function
 from video_compilation import compile_video
 from video_processing_service import process_video
+
+# Importing frame generation functions
+from frame_generation import (
+    load_stylegan3_model, generate_coherent_frames, get_character_profile,
+    identify_faces, download_image, add_image_to_frame, get_faces,
+    check_speech_in_audio, recognize_faces, apply_wav2lip
+)
 
 app = FastAPI()
 
@@ -114,5 +119,21 @@ async def process_text_endpoint(request: TextRequest):
         raise HTTPException(status_code=400, detail=str(e))
 
 if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    if len(sys.argv) > 1 and sys.argv[1] == "generate_frames":
+        import argparse
+        parser = argparse.ArgumentParser(description='Generate frames using StyleGAN3.')
+        parser.add_argument('--model_path', type=str, required=True, help='Path to the StyleGAN3 model file.')
+        parser.add_argument('--output_dir', type=str, required=True, help='Directory to save the generated frames.')
+        parser.add_argument('--num_frames', type=int, default=30, help='Number of frames to generate.')
+        parser.add_argument('--truncation_psi', type=float, default=0.5, help='Truncation psi value for StyleGAN3.')
+        
+        args = parser.parse_args()
+
+        # Load StyleGAN3 model
+        G = load_stylegan3_model(args.model_path)
+        
+        # Generate coherent frames
+        generate_coherent_frames(G, args.output_dir, num_frames=args.num_frames, truncation_psi=args.truncation_psi)
+    else:
+        import uvicorn
+        uvicorn.run(app, host="0.0.0.0", port=8000)
