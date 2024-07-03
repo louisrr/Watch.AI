@@ -65,6 +65,23 @@ The compiled video \( V' \) is:
 
 ![Equation13](https://latex.codecogs.com/svg.latex?V'%20=%20\{F'_0,%20F'_1,%20F'_2,%20\ldots,%20F'_n\})
 
+### 7. Video Generation
+### Linear Projection:
+\[ l1(z) = \text{Linear}(z, 512 \times \text{init\_size}^2) \]
+Projects the input vector \( z \) into a tensor with dimensions \((512, 8, 8)\).
+
+### Upsampling Layers:
+\[ \text{Upsample}(x) = \text{ConvTranspose2d}(x) \rightarrow \text{BatchNorm2d} \rightarrow \text{ReLU} \]
+These layers iteratively increase the spatial dimensions while reducing the depth:
+\[ \text{Initial size} \rightarrow 16 \times 16 \rightarrow 32 \times 32 \rightarrow 64 \times 64 \rightarrow 128 \times 128 \rightarrow 256 \times 256 \rightarrow 512 \times 512 \rightarrow 1024 \times 1024 \rightarrow 2048 \times 2048 \rightarrow 4096 \times 4096 \rightarrow \text{Crop to } 3840 \times 2160 \]
+
+### Output Normalization:
+\[ \text{Output} = \tanh(\text{ConvTranspose2d}(x)) \]
+Uses Tanh to normalize the image values between -1 and 1.
+
+
+
+
 ## Installation
 - Install Python 3.0+ on your machine
 - CD into the main directory or, `/f/watch.ai/watchai`
