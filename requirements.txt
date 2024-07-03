@@ -24,3 +24,11 @@ webrtcvad==2.0.10
 pydub==0.25.1
 dnnlib==1.0
 Pillow==8.3.1
+highres-generator
+highres-discriminator
+video-processing-service
+video-compilation
+transformer
+rnn
+distillation
+bayesian-inference
