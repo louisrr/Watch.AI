@@ -66,18 +66,20 @@ The compiled video \( V' \) is:
 ![Equation13](https://latex.codecogs.com/svg.latex?V'%20=%20\{F'_0,%20F'_1,%20F'_2,%20\ldots,%20F'_n\})
 
 ### 7. Video Generation
-### Linear Projection:
-\[ l1(z) = \text{Linear}(z, 512 \times \text{init\_size}^2) \]
-Projects the input vector \( z \) into a tensor with dimensions \((512, 8, 8)\).
+#### Linear Projection:
+![Linear Projection](https://latex.codecogs.com/svg.latex?l1(z)=\text{Linear}(z,%20512%20\times%20\text{init\_size}^2))
+Projects the input vector \( z \) into a tensor with dimensions (512, 8, 8).
 
-### Upsampling Layers:
-\[ \text{Upsample}(x) = \text{ConvTranspose2d}(x) \rightarrow \text{BatchNorm2d} \rightarrow \text{ReLU} \]
+#### Upsampling Layers:
+![Upsampling Layers](https://latex.codecogs.com/svg.latex?\text{Upsample}(x)%20=%20\text{ConvTranspose2d}(x)%20\rightarrow%20\text{BatchNorm2d}%20\rightarrow%20\text{ReLU})
 These layers iteratively increase the spatial dimensions while reducing the depth:
-\[ \text{Initial size} \rightarrow 16 \times 16 \rightarrow 32 \times 32 \rightarrow 64 \times 64 \rightarrow 128 \times 128 \rightarrow 256 \times 256 \rightarrow 512 \times 512 \rightarrow 1024 \times 1024 \rightarrow 2048 \times 2048 \rightarrow 4096 \times 4096 \rightarrow \text{Crop to } 3840 \times 2160 \]
+![Dimensions](https://latex.codecogs.com/svg.latex?\text{Initial%20size}%20\rightarrow%2016%20\times%2016%20\rightarrow%2032%20\times%2032%20\rightarrow%2064%20\times%2064%20\rightarrow%20128%20\times%20128%20\rightarrow%20256%20\times%20256%20\rightarrow%20512%20\times%20512%20\rightarrow%201024%20\times%201024%20\rightarrow%202048%20\times%202048%20\rightarrow%204096%20\times%204096%20\rightarrow%20\text{Crop%20to}%203840%20\times%202160)
 
-### Output Normalization:
-\[ \text{Output} = \tanh(\text{ConvTranspose2d}(x)) \]
+#### Output Normalization:
+![Output Normalization](https://latex.codecogs.com/svg.latex?\text{Output}%20=%20\tanh(\text{ConvTranspose2d}(x)))
 Uses Tanh to normalize the image values between -1 and 1.
+
+
 
 
 
