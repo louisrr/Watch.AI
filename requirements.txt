@@ -17,3 +17,10 @@ moviepy==1.0.3
 speechrecognition==3.8.1
 pyaudioanalysis==0.3.6
 coqui-tts
+numpy==1.21.2
+opencv-python-headless==4.5.5.64
+face-recognition==1.3.0
+webrtcvad==2.0.10
+pydub==0.25.1
+dnnlib==1.0
+Pillow==8.3.1
