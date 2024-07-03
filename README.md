@@ -82,9 +82,6 @@ Uses Tanh to normalize the image values between -1 and 1.
 
 
 
-
-
-
 ## Installation
 - Install Python 3.0+ on your machine
 - CD into the main directory or, `/f/watch.ai/watchai`
@@ -92,10 +89,46 @@ Uses Tanh to normalize the image values between -1 and 1.
 - pip install fastapi uvicorn fairseq transformers
 - pip install transformers torch
 
-# Training RoBERTa with FastAPI Integration
+#### 1. Clone the repository
+```bash
+git clone https://github.com/louisrr/Watch.AI.git
+cd Watch.AI
+```
+#### 2. Set Up the Python Environment:
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+#### 3. Install Python Dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+#### 4. Run the Python Application:
+```bash
+python main.py
+```
+
+### For the React Code
+#### 5. Navigate to the Frontend Directory:
+```bash
+cd frontend
+````
+
+#### 6. Install Node.js Dependencies:
+```bash
+npm install
+```
+#### 7. Start the React Development Server:
+```bash
+npm start
+```
+
+## Training RoBERTa with FastAPI Integration
 This project provides a modular framework for training a RoBERTa model to classify text. It includes scripts for data collection, an API service for dynamic data ingestion, and a training module. Follow the instructions below to set up and run the training environment.
 
-## Prerequisites
+### Prerequisites
 
 Before you start, ensure you have the following installed:
 
@@ -103,7 +136,7 @@ Before you start, ensure you have the following installed:
 * pip (Python package installer)
 * Git (optional, for version control)
 
-## Environment Setup
+### Environment Setup
 
 1. **Clone the Repository** (optional if you have direct access to the files)
 ```
@@ -122,7 +155,7 @@ source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 pip install torch transformers fastapi uvicorn
 ```
 
-## Project Structure
+### Project Structure
 
 * **datacollection.py:** Handles dynamic data collection and dataset management.
 * **apiservice.py:** FastAPI application for handling API requests.
@@ -130,7 +163,7 @@ pip install torch transformers fastapi uvicorn
 
 ## Usage
 
-## Starting the Data Collection API
+### Starting the Data Collection API
 
 1. **Start the FastAPI server** to begin receiving data through the API.
 ```
@@ -151,7 +184,7 @@ curl -X 'POST' \
 }'
 ```
 
-## Training the Model
+### Training the Model
 1. **Run the training script once** once you have collected enough data.
 ```
 python trainroberta.py
