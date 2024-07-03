@@ -78,6 +78,23 @@ These layers iteratively increase the spatial dimensions while reducing the dept
 ![Output Normalization](https://latex.codecogs.com/svg.latex?\text{Output}%20=%20\tanh(\text{ConvTranspose2d}(x)))
 Uses Tanh to normalize the image values between -1 and 1.
 
+### 8. Image to Video Generation
+#### Input Representation
+![X \in \mathbb{R}^{H \times W \times C}](https://latex.codecogs.com/svg.latex?X%20%5Cin%20%5Cmathbb%7BR%7D%5E%7BH%20%5Ctimes%20W%20%5Ctimes%20C%7D)
+#### Feature Extraction
+![F_{\text{CNN}} = \text{CNN}(X) \in \mathbb{R}^{H' \times W' \times D}](https://latex.codecogs.com/svg.latex?F_%7B%5Ctext%7BCNN%7D%7D%20%3D%20%5Ctext%7BCNN%7D%28X%29%20%5Cin%20%5Cmathbb%7BR%7D%5E%7BH%27%20%5Ctimes%20W%27%20%5Ctimes%20D%7D)
+#### Temporal Coherence Modeling
+![h_t = \text{RNN}(F_{\text{CNN}}(X_t), h_{t-1})](https://latex.codecogs.com/svg.latex?h_t%20%3D%20%5Ctext%7BRNN%7D%28F_%7B%5Ctext%7BCNN%7D%7D%28X_t%29%2C%20h_%7Bt-1%7D%29)
+#### Vision Transformer
+![F_{\text{CVT}} = \text{CVT}(\{F_{\text{CNN}}(X_t) + P_t\}_{t=1}^T)](https://latex.codecogs.com/svg.latex?F_%7B%5Ctext%7BCVT%7D%7D%20%3D%20%5Ctext%7BCVT%7D%28%5C%7BF_%7B%5Ctext%7BCNN%7D%7D%28X_t%29%20%2B%20P_t%5C%7D_%7Bt%3D1%7D%5ET%29)
+#### Progressive Distillation
+![\mathcal{L}_{\text{distill}} = \sum_{l=1}^L \left\| F_{\text{teacher}}^l - F_{\text{student}}^l \right\|^2](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BL%7D_%7B%5Ctext%7Bdistill%7D%7D%20%3D%20%5Csum_%7Bl%3D1%7D%5EL%20%5Cleft%5C%7C%20F_%7B%5Ctext%7Bteacher%7D%7D%5El%20-%20F_%7B%5Ctext%7Bstudent%7D%7D%5El%20%5Cright%5C%7C%5E2)
+#### Bayesian Inference
+![p(\theta \mid X, Y) \propto p(Y \mid X, \theta) p(\theta)](https://latex.codecogs.com/svg.latex?p%28%5Ctheta%20%5Cmid%20X%2C%20Y%29%20%5Cpropto%20p%28Y%20%5Cmid%20X%2C%20%5Ctheta%29%20p%28%5Ctheta%29)
+#### Animation Generation
+![V_t = W \cdot F_{\text{CVT}}(X_t) + b](https://latex.codecogs.com/svg.latex?V_t%20%3D%20W%20%5Ccdot%20F_%7B%5Ctext%7BCVT%7D%7D%28X_t%29%20%2B%20b)
+#### Loss Function
+![\mathcal{L} = \mathcal{L}_{\text{recon}} + \lambda_{\text{distill}} \mathcal{L}_{\text{distill}} + \lambda_{\text{temp}} \mathcal{L}_{\text{temp}}](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BL%7D%20%3D%20%5Cmathcal%7BL%7D_%7B%5Ctext%7Brecon%7D%7D%20%2B%20%5Clambda_%7B%5Ctext%7Bdistill%7D%7D%20%5Cmathcal%7BL%7D_%7B%5Ctext%7Bdistill%7D%7D%20%2B%20%5Clambda_%7B%5Ctext%7Btemp%7D%7D%20%5Cmathcal%7BL%7D_%7B%5Ctext%7Btemp%7D%7D)
 
 
 
