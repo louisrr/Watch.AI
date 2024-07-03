@@ -84,6 +84,7 @@ Uses Tanh to normalize the image values between -1 and 1.
 
 
 
+
 ## Installation
 - Install Python 3.0+ on your machine
 - CD into the main directory or, `/f/watch.ai/watchai`
