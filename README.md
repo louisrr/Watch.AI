@@ -67,7 +67,6 @@ The compiled video \( V' \) is:
 
 ### 7. Video Generation
 #### Linear Projection:
-![Linear Projection](https://latex.codecogs.com/svg.latex?l1(z)=\text{Linear}(z,%20512%20\times%20\text{init\_size}^2))
 Projects the input vector \( z \) into a tensor with dimensions (512, 8, 8).
 
 #### Upsampling Layers:
